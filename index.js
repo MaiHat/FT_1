@@ -19,8 +19,23 @@ app.get("/login", (req, res) => {
   res.render("login.ejs");
 });
 
+app.get("/home", (req, res) => {
+  res.render("home.ejs");
+})
+
 app.post("/submit", (req, res) => {
+  const name = req.body["userName"];
+  const email = req.body["email"];
+  const password = req.body["password"];
+  const confirmPassword = req.body["confirmPassword"];
+  console.log(name);
+  console.log(email);
+  console.log(password);
+  console.log(confirmPassword);
+
+
   
+  res.render("home.ejs", { inputedName: name });
 });
 
 app.listen(port, () => {
